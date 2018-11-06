@@ -1,23 +1,23 @@
-main: main.o grille.o io.o jeu.o
-	gcc main.o grille.o io.o jeu.o -o main
+main: src/main.o src/grille.o src/io.o src/jeu.o
+	gcc src/main.o src/grille.o src/io.o src/jeu.o -o main
 
-main.o: main.c grille.h io.h jeu.h
-	gcc -c main.c	
+main.o: src/main.c src/grille.h src/io.h src/jeu.h
+	gcc -c src/main.c	
 	
-grille.o: grille.c grille.h 
-	gcc -c grille.c
+grille.o: src/grille.c src/grille.h 
+	gcc -c src/grille.c
 	
-io.o: io.c io.h
-	gcc -c io.c
+io.o: src/io.c src/io.h
+	gcc -c src/io.c
 	
-jeu.o: jeu.c jeu.h
-	gcc -c jeu.c
+jeu.o: src/jeu.c src/jeu.h
+	gcc -c src/jeu.c
 
 clean: 
-	rm *.o main
+	rm src/*.o main
 
 dist: 
-	tar cfJ archive.tar.xz *.c *.h makefile Doxyfile
+	tar cfJ archive.tar.xz src/*.c src/*.h makefile Doxyfile
 	 
 	
 	

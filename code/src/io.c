@@ -46,13 +46,17 @@ void debut_jeu(grille *g, grille *gc){
 
 			case 'n' :
 			{//touche n pour entrer au clavir le nom d'une nouvelle grille
+				getchar();
 				printf ("Entrez le nom de la nouvelle grille: \n");
 				char nom_grille[300];
+				grille g1, g2;
 				scanf ("%s", nom_grille);
-				libere_grille (g);
-				libere_grille (gc);
-				init_grille_from_file (nom_grille, g);
-				affiche_grille (*g); 
+				init_grille_from_file (nom_grille, &g1);
+				alloue_grille(g1.nbl, g1.nbc, &g2);
+				 
+				affiche_grille (g1); 
+				g = &g1;
+				gc = &g2;
 			}
 
 
