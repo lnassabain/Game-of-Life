@@ -14,6 +14,10 @@ jeu.o: jeu.c jeu.h
 	gcc -c jeu.c
 
 clean: 
-	rm *.o main 
+	rm *.o main
+
+dist: 
+	tar cfJ archive.tar.xz *.c *.h makefile Doxyfile
+	 
 	
 	
