@@ -9,8 +9,9 @@
 /**
   * \fn void alloue_grille(int l, int c, grille* g)
   * \brief alloue une grille de taille l*c, et initialise toutes les cellules à mortes
-  * \param l entier désignant le nombre de lignes, c désignant le nombre de colonnes et g l'adresse
-  * de la grille qu'on alloue et initialise.
+  * \param l entier désignant le nombre de lignes. 
+  * \param c entier désignant le nombre de colonnes.  
+  * \param g l'adressede la grille qu'on alloue et initialise.
   * \return void, la fonction ne renvoie rien mais g est maintenant l'adresse d'une grille alloué et
   * initialisée.
   */
