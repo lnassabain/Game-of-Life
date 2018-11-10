@@ -72,6 +72,19 @@ void debut_jeu(grille *g, grille *gc){
 				break;
 			}
 
+			case 'c' :
+			{ //touche c pour activer/désactiver le voisinage cyclique
+				if (compte_voisins_vivants == compte_vv_cyclique)
+				{
+					compte_voisins_vivants = compte_vv_non_cyclique;
+				}
+				else 
+				{
+					compte_voisins_vivants = compte_vv_cyclique;
+  				}
+				break;
+			}
+				
 
 			default : 
 			{ // touche non traitée

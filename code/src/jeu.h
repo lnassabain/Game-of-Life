@@ -26,7 +26,7 @@ static inline int modulo(int i, int m) {return (i+m)%m;}
 
 
 /**
-  *\fn int compte_voisins_vivants (int i, int j, grille g)
+  *\fn int compte_vv_cyclique (int i, int j, grille g)
   *\brief Fonction qui compte le nombre de voisins vivants de la cellule (i,j)
   * avec bords cycliques
   *\param i Entier indiquant le numero de ligne de la cellule 
@@ -34,7 +34,7 @@ static inline int modulo(int i, int m) {return (i+m)%m;}
   *\param g Grille dans laquelle se trouve la cellule en question
   *\return int Entier indiquant le nombre de voisins vivants de la cellule (i,j)
   */  
-int compte_voisins_vivants (int i, int j, grille g);
+int compte_vv_cyclique (int i, int j, grille g);
 
 
 /**
@@ -47,5 +47,20 @@ int compte_voisins_vivants (int i, int j, grille g);
   * evolué d'un pas de temps
   */
 void evolue (grille *g, grille *gc);
+
+/**
+  *\fn int compte_vv_non_cyclique (int i, int j, grille g)
+  *\brief Fonction qui compte le nombre de voisins vivants de la cellule (i,j)
+  * avec bords non cycliques
+  *\param i Entier indiquant le numero de ligne de la cellule
+  *\param j Entier indiquant le numero de colonne de la cellule
+  *\param g Grille dans laquelle se trouve la cellule en question
+  *\return int Entier indiquant le nombre de voisins vivants de la cellule (i,j)
+  */
+int compte_vv_non_cyclique (int i, int j, grille g);
+
+
+int (*compte_voisins_vivants) (int, int, grille); /*!< Pointeur vers une fonction qui prend 
+en parametres deux entiers et une grille et qui renvoie un entier*/
 
 #endif

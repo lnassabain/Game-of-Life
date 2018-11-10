@@ -96,7 +96,11 @@ static inline void set_morte(int i, int j, grille g){g.cellules[i][j] = 0;}
   *\return static inline int la fonction nous renvoie un booléen, 1 ou 0 selon l résultat
   * du test
   */
-static inline int est_vivante(int i, int j, grille g){return g.cellules[i][j] == 1;}
+static inline int est_vivante(int i, int j, grille g){
+	if (i<0 || i >= g.nbl) return 0;
+	else if (j<0 || j >= g.nbc) return 0;	
+	else return (g.cellules[i][j] == 1);
+}
 
 
 
