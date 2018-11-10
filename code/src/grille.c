@@ -1,8 +1,4 @@
-/**
-  * \file grille.c
-  * \brief Fonctions traitant les grilles
-  * \date 06.Novembre.2018
-  */
+
 
 #include "grille.h"
 
