@@ -62,10 +62,11 @@ void debut_jeu(grille *g, grille *gc){
 				printf ("Entrez le nom de la nouvelle grille: \n");
 				char nom_grille[300];
 				grille g1, g2;
+				tps = -1;
 				scanf ("%s", nom_grille);
 				init_grille_from_file (nom_grille, &g1);
 				alloue_grille(g1.nbl, g1.nbc, &g2);
-				 
+				printf("\n"); 
 				affiche_grille (g1); 
 				g = &g1;
 				gc = &g2;
