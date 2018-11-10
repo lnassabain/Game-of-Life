@@ -71,4 +71,21 @@ void efface_grille (grille g);
   */
 void debut_jeu(grille *g, grille *gc);
 
+/**
+  *\fn void affiche_temps (int tps)
+  *\brief Fonction utilisée pour afficher le temps d'evolution 
+  *\param tps Entier désignant la valeur du temps à afficher
+  *\return void La fonction ne renvoie rien mais elle affiche dans la fenetre de la console
+  * Temps = tps
+  */
+void affiche_temps (int tps);
+
+/**
+  *\fn void efface_temps()
+  *\brief Fonction qui déplace le curseur d'une ligne vers le haut, utilisée pour effacer l'affichage du temps
+  *\param void
+  *\return void La fonction efface l'affichage du temps dans la fenêtre de la console
+  */
+void efface_temps();
+
 #endif
