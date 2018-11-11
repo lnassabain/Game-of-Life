@@ -17,7 +17,7 @@ clean:
 	rm src/*.o main
 
 dist: 
-	tar cfJ archive.tar.xz src/*.c src/*.h makefile Doxyfile
+	tar cfJ NassabainLeonardo-GoL-v2.0.tar.xz src/*.c src/*.h makefile Doxyfile
 	 
 	
 	
