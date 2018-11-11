@@ -1,5 +1,5 @@
 main: src/main.o src/grille.o src/io.o src/jeu.o
-	gcc src/main.o src/grille.o src/io.o src/jeu.o -g -o main
+	gcc src/main.o src/grille.o src/io.o src/jeu.o -o main
 
 main.o: src/main.c src/grille.h src/io.h src/jeu.h
 	gcc -c src/main.c	
