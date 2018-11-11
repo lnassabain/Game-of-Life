@@ -41,6 +41,7 @@ void evolue (grille *g, grille *gc){
 			if (est_vivante(i,j,*g)) 
 			{ // evolution d'une cellule vivante
 				if ( v!=2 && v!= 3 ) set_morte(i,j,*g);
+				else if (v==2 || v==3) set_tjr_vivante(i, j, *g);
 			}
 			else 
 			{ // evolution d'une cellule morte

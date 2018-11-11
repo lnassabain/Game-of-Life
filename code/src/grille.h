@@ -85,7 +85,15 @@ static inline void set_vivante(int i, int j, grille g){g.cellules[i][j] = 1;}
   */
 static inline void set_morte(int i, int j, grille g){g.cellules[i][j] = 0;}
 
-
+/**
+  *\fn static inline void set_tjr_vivante (int  i, int j, grille g)
+  *\brief Incremente l'age de la cellule si elle set toujours vivante au temps = temps+1
+  *\param i Entier désignant la ligne dans laquelle se trouve la cellule
+  *\param j Entier désignant la colonne dans laquelle se trouve la cellule
+  *\param g Grille dans laquelle se trouve la cellule dont on veut incrementer l'age
+  *\return static inline void La fonction ne renvoie rien, à la sortie de la fonction, l'age de la cellule de position (i,j) est incrementé
+  */
+static inline void set_tjr_vivante(int i, int j, grille g){g.cellules[i][j] += 1;}
 
 /**
   *\fn static inline int est_vivante(int i, int j, grille g)
@@ -99,7 +107,7 @@ static inline void set_morte(int i, int j, grille g){g.cellules[i][j] = 0;}
 static inline int est_vivante(int i, int j, grille g){
 	if (i<0 || i >= g.nbl) return 0;
 	else if (j<0 || j >= g.nbc) return 0;	
-	else return (g.cellules[i][j] == 1);
+	else return (g.cellules[i][j] >= 1);
 }
 
 

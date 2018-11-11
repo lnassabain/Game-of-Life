@@ -7,11 +7,22 @@ void affiche_trait (int c){
 	return;
 }
 
-void affiche_ligne (int c, int* ligne){
+void affiche_ligne_sans_age (int c, int* ligne){
 	int i;
 	for (i=0; i<c; ++i) 
 		if (ligne[i] == 0 ) printf ("|   "); else printf ("| O ");
 	printf("|\n");
+	return;
+}
+
+void affiche_ligne_age (int c, int * ligne){
+	int i;
+	for (i=0; i<c; i++)
+	{
+		if (ligne[i]==0) printf ("|   ");
+		else printf("| %d ", ligne[i]);
+	}
+	printf ("|\n");
 	return;
 }
 
@@ -70,6 +81,13 @@ void debut_jeu(grille *g, grille *gc){
 				affiche_grille (g1); 
 				g = &g1;
 				gc = &g2;
+				break;
+			}
+	
+			case 'v' :
+			{//touche pour activer/désactiver le vieillissement des cellules
+				if (affiche_ligne == affiche_ligne_sans_age) affiche_ligne = affiche_ligne_age;
+				else if (affiche_ligne == affiche_ligne_age) affiche_ligne = affiche_ligne_sans_age;
 				break;
 			}
 
