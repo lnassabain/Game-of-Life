@@ -16,11 +16,11 @@ void affiche_ligne_sans_age (int c, int* ligne){
 }
 
 void affiche_ligne_age (int c, int * ligne){
-	int i;
-	for (i=0; i<c; i++)
+	int j;
+	for (j=0; j<c; j++)
 	{
-		if (ligne[i]==0) printf ("|   ");
-		else printf("| %d ", ligne[i]);
+		if (ligne[j]==0) printf ("|   ");
+		else printf("| %d ", ligne[j]);
 	}
 	printf ("|\n");
 	return;
@@ -58,26 +58,28 @@ void debut_jeu(grille *g, grille *gc){
 		switch (c) {
 			case '\n' : 
 			{ // touche "entree" pour évoluer
-				evolue(g,gc);
-				tps++;
+				
 				efface_grille(*g);
 				efface_temps();
 				affiche_temps (tps);
 				affiche_grille(*g);
+				evolue(g,gc);
+				tps++;
 				break;
 			}
 
 			case 'n' :
 			{//touche n pour entrer au clavir le nom d'une nouvelle grille
-				getchar();
+				
 				printf ("Entrez le nom de la nouvelle grille: \n");
 				char nom_grille[300];
 				grille g1, g2;
-				tps = -1;
+				tps = 0;
 				scanf ("%s", nom_grille);
 				init_grille_from_file (nom_grille, &g1);
 				alloue_grille(g1.nbl, g1.nbc, &g2);
 				printf("\n"); 
+				affiche_temps (tps);
 				affiche_grille (g1); 
 				g = &g1;
 				gc = &g2;

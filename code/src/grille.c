@@ -7,13 +7,13 @@
 void alloue_grille (int l, int c, grille* g){
 	g -> nbl = l;
 	g -> nbc = c;
-	g -> cellules = (int**) malloc (c * sizeof(int*));
+	g -> cellules = (int**) malloc (l * sizeof(int*));
 	int i,j = 0;
-	for (i = 0; i < c; i++) {
-		g -> cellules[i] = (int*) malloc (l * sizeof(int));
+	for (i = 0; i < l; i++) {
+		g -> cellules[i] = (int*) malloc (c * sizeof(int));
 	}
- 	for (i = 0; i < c; i++) {
-		for (j = 0; j< l ; j++){
+ 	for (i = 0; i < l; i++) {
+		for (j = 0; j< c ; j++){
 			g -> cellules[i][j]= 0;
 		}
 	}
@@ -23,7 +23,7 @@ void alloue_grille (int l, int c, grille* g){
 
 void libere_grille (grille* g){
 	int i = 0;
-	 for (i = 0; i < g -> nbc; i++){
+	 for (i = 0; i < g -> nbl; i++){
 		free (g -> cellules[i]);
 	}
 	free (g -> cellules);
