@@ -4,12 +4,13 @@ vpath %.c src
 vpath %.o obj
 OBJDIR=obj/
 INCLUDE=include/
+SRCDIR= src/
 EXEC=bin/
 
-main: main.o grille.o io.o jeu.o
+main: $(OBJETS)
 	gcc $(OBJDIR)*.o -o $(EXEC)$@
 
-main.o: main.c io.h jeu.h grille.h 
+main.o: main.c $(INCLUDE)*.h 
 	gcc -c $< -o $(OBJDIR)$@
 
 %.o : src/%.c $(INCLUDE)%.h
@@ -19,7 +20,7 @@ clean:
 	rm $(OBJDIR)*.o $(EXEC)main
 
 dist: 
-	tar cfJ NassabainLeonardo-GoL-v2.0.tar.xz src/*.c include/*.h makefile doc/Doxyfile
+	tar cfJ NassabainLeonardo-GoL-v2.0.tar.xz $(SRCDIR)*.c $(INCLUDE)*.h makefile doc/Doxyfile
 	 
 	
 	

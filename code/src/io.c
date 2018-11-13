@@ -10,7 +10,9 @@ void affiche_trait (int c){
 void affiche_ligne_sans_age (int c, int* ligne){
 	int i;
 	for (i=0; i<c; ++i) 
-		if (ligne[i] == 0 ) printf ("|   "); else printf ("| O ");
+		if (ligne[i] == 0 ) printf ("|   ");
+		else if (ligne[i] ==-1) printf ("| X ");
+		else printf ("| O ");
 	printf("|\n");
 	return;
 }
@@ -20,6 +22,7 @@ void affiche_ligne_age (int c, int * ligne){
 	for (j=0; j<c; j++)
 	{
 		if (ligne[j]==0) printf ("|   ");
+		else if (ligne[j] ==-1) printf ("| X ");
 		else printf("| %d ", ligne[j]);
 	}
 	printf ("|\n");

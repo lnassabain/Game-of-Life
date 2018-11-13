@@ -75,6 +75,17 @@ static inline void set_vivante(int i, int j, grille g){g.cellules[i][j] = 1;}
 
 
 /**
+  *\fn static inline void set_non_viable (int i, int j, grille g)
+  *\brief La fonction rend la cellule de coordonnées (i, j) de la grille g, non viable
+  *\param i Entier désignant la ligne dans laquelle se trouve la cellule
+  *\param j Entier désignant la colonne dans laquelle se trouve la cellule
+  *\param g Grille dans laquelle se trouve la cellule qu'on veut rendre non viable
+  *\return static inline void La fonction ne renvoie rien, à la sortie de la fonction, la cellule de coordonnée (i, j) de la grille g aura pour valeur -1 (non viable)
+  */
+static inline void set_non_viable (int i, int j, grille g){g.cellules[i][j] = -1;}
+
+
+/**
   *\fn static inline void set_morte(int i, int j, grille g)
   *\brief rend morte la cellule de coordonnées (i, j) de la grille g
   *\param i entier désignant la ligne dans laquelle se trouve la cellule
@@ -111,6 +122,15 @@ static inline int est_vivante(int i, int j, grille g){
 }
 
 
+/**
+  *\fn static inline int est_non_viable(int i, int j, grille g)
+  *\brief Fonction qui teste si une cellule est non viable
+  *\param i Entier définissant la ligne dans laquelle se trouve la cellule
+  *\param j Entier définissant la colonne dans laquelle se trouve la cellule
+  *\param g Grille dans laquelle on veut tester si la cellule de coordonnées (i,j) est non viable
+  *\return static inline int La fonction renvoie un entier, vrai ou faux, 1 ou 0 selon le résultat du test
+  */
+static inline int est_non_viable(int i, int j, grille g){return g.cellules[i][j]==-1;}
 
 
 /**

@@ -36,7 +36,7 @@ void init_grille_from_file (char * filename, grille* g){
 	pfile = fopen(filename, "r");
 	assert (pfile != NULL);
 	
-	int i,j,n,l,c,vivantes=0;
+	int i,j,n1,n2,l,c,vivantes,nonviables=0;
 	
 	fscanf(pfile, "%d", & l);
 	fscanf(pfile, "%d", & c);
@@ -44,12 +44,17 @@ void init_grille_from_file (char * filename, grille* g){
 	alloue_grille(l,c,g);
 	
 	fscanf(pfile, "%d", & vivantes);
-	for (n=0; n< vivantes; ++n){
+	for (n1=0; n1< vivantes; ++n1){
 		fscanf(pfile, "%d", & i);
 		fscanf(pfile, "%d", & j);
 		set_vivante(i,j,*g);
 	}
-	
+	fscanf(pfile, "%d", &nonviables);
+	for (n2=0; n2< nonviables; ++n2) {
+		fscanf(pfile, "%d", & i);
+		fscanf(pfile, "%d", & j);
+		set_non_viable(i,j, *g);
+	}	
 	fclose (pfile);
 	return;
 }
