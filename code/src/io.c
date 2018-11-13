@@ -1,4 +1,4 @@
-#include "io.h"
+#include "../include/io.h"
 
 void affiche_trait (int c){
 	int i;

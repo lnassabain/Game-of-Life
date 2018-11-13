@@ -1,4 +1,4 @@
-#include "jeu.h"
+#include "../include/jeu.h"
 
 int compte_vv_cyclique (int i, int j, grille g){
 	int v = 0, l=g.nbl, c = g.nbc;

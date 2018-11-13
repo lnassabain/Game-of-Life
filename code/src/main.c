@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-#include "grille.h"
-#include "io.h"
-#include "jeu.h"
+#include "../include/grille.h"
+#include "../include/io.h"
+#include "../include/jeu.h"
 
 int main (int argc, char ** argv) {
 	
