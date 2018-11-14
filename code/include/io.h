@@ -25,25 +25,13 @@ void affiche_trait (int c);
 
 
 /**
-  *\fn void affiche_ligne_sans_age (int c, int* ligne)
-  *\brief Fonction qui gère l'affichage d'une ligne de la grille
-  *\param c Entier définissant le nombre de colonnes à parcourir
-  *\param ligne Tableau d'entiers contenant des informations sur l'état des cellules,
-  * si il y a un 0 dans le tableau cela veut dire que la cellule est morte,
-  * ou qu'elle est vivante s'il y a un entier different de 0.
-  *\return void La fonction ne renvoie rien mais à la sortie de la fonction, une ligne sera affiché
-  */
-void affiche_ligne_sans_age (int c, int* ligne);
-
-
-/**
-  *\fn void affiche_ligne_age (int c, int* ligne)
+  *\fn void affiche_ligne (int c, int* ligne)
   *\brief Fonction qui gèr l'affichage d'une ligne de la grille avec l'age de chaque cellule
   *\param c Entier définissant le nombre de colonnes dans la ligne (nbr de colonnes à parcourir
   *\param ligne Tableau d'entiers à afficher, chaque entier est l'age d'une cellule
   *\return void La fonction ne renvoie rien, elle affiche une ligne de la colonne avec l'age de chaque cellule
   */
-void affiche_ligne_age (int c, int* ligne);
+void affiche_ligne (int c, int* ligne);
 
 
 /**
@@ -97,7 +85,6 @@ void affiche_temps (int tps);
   */
 void efface_temps();
 
-void (*affiche_ligne) (int, int*); /*!< Pointeur vers une fonction qui prend 
-en parametres un entier et un pointeur vers un entier et qui renvoie un void*/
+int vieillissement; /*!< Entier dont la valeur determine si le vieillissement est activé ou desactivé*/
 
 #endif

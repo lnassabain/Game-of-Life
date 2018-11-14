@@ -15,7 +15,7 @@ int main (int argc, char ** argv) {
 	
 	grille g, gc;
 	compte_voisins_vivants = compte_vv_cyclique;
-	affiche_ligne = affiche_ligne_sans_age;
+	vieillissement = 0;
 	init_grille_from_file(argv[1],&g);
 	alloue_grille (g.nbl, g.nbc, &gc);
 	affiche_temps(0);

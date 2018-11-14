@@ -41,8 +41,10 @@ void evolue (grille *g, grille *gc){
 			if (est_vivante(i,j,*g)) 
 			{ // evolution d'une cellule vivante
 				if ( v!=2 && v!= 3 ) {set_morte(i,j,*g);}
- 				else if (g->cellules[i][j] > 8) {set_morte(i,j,*g);}
-				else if (v==2 || v==3) {set_tjr_vivante(i, j, *g);}
+				else if (vieillissement == 1){
+					if (g->cellules[i][j] >= 8) {set_morte(i,j,*g);}
+					else if (v==2 || v==3) {set_tjr_vivante(i,j,*g);}
+ 				}
 			}
 			else if (est_non_viable(i, j, *g)); //evolution d'une cellule non viable
 			else 

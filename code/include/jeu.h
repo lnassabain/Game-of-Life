@@ -63,4 +63,6 @@ int compte_vv_non_cyclique (int i, int j, grille g);
 int (*compte_voisins_vivants) (int, int, grille); /*!< Pointeur vers une fonction qui prend 
 en parametres deux entiers et une grille et qui renvoie un entier*/
 
+int vieillissement; /*!< Entier dont la valeur determine si le vieillissement est activé ou desactivé */
+
 #endif
