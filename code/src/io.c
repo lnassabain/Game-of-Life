@@ -36,12 +36,14 @@ void efface_grille (grille g){
 	printf("\n\e[%dA",g.nbl*2 + 5); 
 }
 
-void affiche_temps (int tps){
-	printf("Temps = %d", tps);
+void affiche_mode (int tps){
+	printf("Temps = %d\n", tps);
+	printf("Cyclique : %d\n", (compte_voisins_vivants == compte_vv_cyclique));
+	printf("Vieillissement : %d", (vieillissement == 1));
 }
 
-void efface_temps() {
-	printf("\n\e[1A");
+void efface_mode() {
+	printf("\n\e[3A");
 }
 
 void debut_jeu(grille *g, grille *gc){
@@ -54,8 +56,8 @@ void debut_jeu(grille *g, grille *gc){
 			{ // touche "entree" pour évoluer
 				
 				efface_grille(*g);
-				efface_temps();
-				affiche_temps (tps);
+				efface_mode();
+				affiche_mode (tps);
 				affiche_grille(*g);
 				evolue(g,gc);
 				tps++;
@@ -73,7 +75,7 @@ void debut_jeu(grille *g, grille *gc){
 				init_grille_from_file (nom_grille, &g1);
 				alloue_grille(g1.nbl, g1.nbc, &g2);
 				printf("\n"); 
-				affiche_temps (tps);
+				affiche_mode (tps);
 				affiche_grille (g1); 
 				g = &g1;
 				gc = &g2;

@@ -18,7 +18,7 @@ int main (int argc, char ** argv) {
 	vieillissement = 0;
 	init_grille_from_file(argv[1],&g);
 	alloue_grille (g.nbl, g.nbc, &gc);
-	affiche_temps(0);
+	affiche_mode(0);
 	affiche_grille(g);
 	debut_jeu(&g, &gc);
 	libere_grille(&g);

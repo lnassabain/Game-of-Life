@@ -27,9 +27,9 @@ void affiche_trait (int c);
 /**
   *\fn void affiche_ligne (int c, int* ligne)
   *\brief Fonction qui gèr l'affichage d'une ligne de la grille avec l'age de chaque cellule
-  *\param c Entier définissant le nombre de colonnes dans la ligne (nbr de colonnes à parcourir
+  *\param c Entier définissant le nombre de colonnes dans la ligne (nbr de colonnes à parcourir)
   *\param ligne Tableau d'entiers à afficher, chaque entier est l'age d'une cellule
-  *\return void La fonction ne renvoie rien, elle affiche une ligne de la colonne avec l'age de chaque cellule
+  *\return void La fonction ne renvoie rien, elle affiche une ligne de la grille avec l'age de chaque cellule
   */
 void affiche_ligne (int c, int* ligne);
 
@@ -69,21 +69,22 @@ void efface_grille (grille g);
 void debut_jeu(grille *g, grille *gc);
 
 /**
-  *\fn void affiche_temps (int tps)
-  *\brief Fonction utilisée pour afficher le temps d'evolution 
+  *\fn void affiche_mode (int tps)
+  *\brief Fonction utilisée pour afficher le temps d'evolution est l'etat des differents modes 
   *\param tps Entier désignant la valeur du temps à afficher
-  *\return void La fonction ne renvoie rien mais elle affiche dans la fenetre de la console
-  * Temps = tps
+  *\return void La fonction ne renvoie rien, elle affiche le temps, si le vieillissement est activé et si le
+  * mode cyclique est activé
   */
-void affiche_temps (int tps);
+void affiche_mode (int tps);
 
 /**
-  *\fn void efface_temps()
-  *\brief Fonction qui déplace le curseur d'une ligne vers le haut, utilisée pour effacer l'affichage du temps
-  *\param void
-  *\return void La fonction efface l'affichage du temps dans la fenêtre de la console
+  *\fn void efface_mode()
+  *\brief Fonction qui déplace le curseur de 3 lignes vers le haut, utilisée pour effacer l'affichage du temps
+  * et l'affichage des etats des differents modes
+  *\param void La fonction ne prend rien en parametres
+  *\return void La fonction efface l'affichage du temps et des etats des differents modes
   */
-void efface_temps();
+void efface_mode();
 
 int vieillissement; /*!< Entier dont la valeur determine si le vieillissement est activé ou desactivé*/
 
