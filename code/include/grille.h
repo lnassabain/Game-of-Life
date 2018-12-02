@@ -138,8 +138,60 @@ static inline int est_non_viable(int i, int j, grille g){return g.cellules[i][j]
   * \brief la fonction recopiera la grille gs dans la grille gd 
   * \param gs grille à recopier
   * \param gd grille dans laquelle on recopiera la grille gs 
-  * \return void, à la sortie de la fonction, la grille gd sera la même que la grille gs
+  * \return void A la sortie de la fonction, la grille gd sera la même que la grille gs
   */
 void copie_grille (grille gs, grille gd);
+
+
+/**
+  *\fn int memes_grilles_test(grille gs, grille gd)
+  *\brief La fonction compare 2 grilles gs et gd qui sont de la meme taille et renvoie 1 si elles ont la meme configuration et 0 sinon 
+  *\param gs Grille, premiere grille à comparer
+  *\param gd Grille, deuxieme grille à comparer
+  *\return int 1 ou 0 selon le resultat du test.
+  */
+int memes_grilles_test(grille gs, grille gd);
+
+
+/**
+  *\fn int colonie_morte(grille gs)
+  *\brief La fonction teste si toutes les cellules d'une grille sont mortes et renvoie 1 si oui ou 0 s'il y a toujours
+  * de cellules vivantes.
+  *\param gs Grille sur laquelle on fait le test
+  *\return int 1 ou 0 selon le resultat du test.
+  */
+int colonie_morte(grille gs);
+
+
+/**
+  *\fn int oscille(grille gs)
+  *\brief La fonction fait evoluer la grille donnée en parametre tant qu'elle contient des cellules vivantes 
+  * et tant qu'elle ne depasse pas 200 evolution et compare chacune des configurations possibles avec la configuration courante
+  * de la colonie. La fonction renvoie la periode d'oscillation.
+  *\param gs Grille contenant une colonie qu'on veut savoir si elle oscille
+  *\return int La periode d'oscillation si elle existe, 0 si la colonie n'oscille pas
+  */
+int oscille(grille gs);
+
+
+/**
+  *\fn grille nouv_grille(grille g1)
+  *\brief La fonction innitialise une nouvelle grille dont le chemin est entré dans le terminal 
+  *\param g1 Grille qu'on alloue et initialise à partir d'un fichier entré dans le terminal 
+  *\return grille Une grille alloué et initialisée dont les informations se trouvaient dans le fichier
+  * entré dans le terminal.
+  */
+grille nouv_grille(grille g1);
+
+
+/**
+  *\fn int delai_oscille(grille gs)
+  *\brief La fonction prend en parametre une grille qui n'oscille pas dans sa configuration courante et on verifie
+  * si elle oscille pour chacune de ses evolutions, si elle devient oscillante au bout d'un certain temps,
+  * on renvoie ce delai, sinon on renvoie 0.
+  *\param gs Grille pour laquelle on veut tester si elle oscillera dans le futur
+  *\return int Le delai au bout duquel une colonie devient oscillante, 0 si elle ne le devient pas
+  */
+int delai_oscille(grille gs);
 
 #endif

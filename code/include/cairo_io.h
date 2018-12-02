@@ -62,4 +62,30 @@ void affiche_mode_cairo (int tps, cairo_t* cr);
 void efface_ecran_cairo(cairo_t* cr); //efface les modes 
 
 
+/**
+  *\fn void affiche_oscille(int os, cairo_t* cr)
+  *\brief Fonction qui affiche la periode d'oscillation dans la fenetre graphique. 
+  * La fonction est utilisée dans le cas ou la colonie est oscillante.
+  *\param os Entier, désigne la periode d'oscillation à afficher 
+  *\param cr Pointeur vers le contexte cairo courant 
+  *\return void La fonction ne renvoie rien, elle affiche simplement la phrase
+  * "Colonie oscillante, Periode: " et la periode d'oscillation dans la fenetre
+  */
+void affiche_oscille(int os, cairo_t* cr);
+
+
+/**
+  *\fn void affiche_non_oscille(int d, cairo_t* cr)
+  *\brief Fonction qui affiche la phrase "Colonie non oscillante" dans le cas d'une colonie
+  * qui n'oscille pas et n'a pas de delai d'oscillation ou la phrase "La colonie deviendra oscillante, Delai: " et le delai
+  * d'oscillation dans le cas d'une colonie qui n'oscille pas, mais oscillera au bout d'un certain temps.
+  *\param d Entier, le delai d'oscillation à afficher, vaut 0 si la colonie n'oscillera pas.
+  *\param cr Pointeur vers le contexte cairo courant
+  *\return void La fonction ne renvoie rien, elle affiche simplement au bout de combien de temps, la colonie oscillera
+  * ou si elle n'oscillera pas.
+  */
+void affiche_non_oscille(int d, cairo_t* cr);
+
+
+
 #endif

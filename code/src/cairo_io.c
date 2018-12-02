@@ -144,8 +144,39 @@ void affiche_mode_cairo (int tps, cairo_t* cr){
 	return;
 	
 }
-
 /*---------------------------------------------------------------------------------------------*/
+void affiche_oscille(int os, cairo_t* cr){
+	char str3[20];
+	sprintf(str3, "%d", os);
+	char affos[100] = "Colonie oscillante, Periode: ";
+	strcat (affos, str3);
+	cairo_move_to(cr, 10, 85);
+	cairo_set_source_rgb(cr, 1.0, 1.0, 1.0);
+	cairo_show_text(cr, affos);
+	return;
+}
+/*---------------------------------------------------------------------------------------------*/
+void affiche_non_oscille(int d, cairo_t* cr){
+	if (d == 0){
+		char affnos[100]= "Colonie non oscillante";
+		cairo_move_to(cr, 10, 85);
+		cairo_set_source_rgb(cr, 1.0, 1.0, 1.0);
+		cairo_show_text(cr, affnos);
+	}
+	else{
+		char affnosd[100]= "La colonie deviendra oscillante, Delai: ";
+		char str5[20];
+		sprintf(str5, "%d", d);
+		strcat(affnosd, str5);
+		cairo_move_to(cr, 10, 85);
+		cairo_set_source_rgb(cr, 1.0, 1.0, 1.0);
+		cairo_show_text(cr, affnosd);
+	}
+
+	return;
+}
+/*---------------------------------------------------------------------------------------------*/
+
 void efface_ecran_cairo(cairo_t* cr){
 	cairo_set_source_rgb (cr, 0.0, 0.0, 0.0);
 	cairo_paint(cr);

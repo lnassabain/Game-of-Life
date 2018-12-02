@@ -103,26 +103,38 @@ int main (int argc, char *argv[]){
 		}
 	/*--------------------------------------------------------------------------*/
 		else if (e.type==KeyPress && e.xkey.keycode == 57){ //touche n
-			//cairo_set_source_rgb(cr, 0.0, 0.0, 1.0);
-			//cairo_paint(cr);
-			//cairo_show_text(cr, "Entrez grille terminal"); 
-			char nouv_g[200];
-			printf("Entrez le chemin vers une nouvelle grille:\n");
-			scanf ("%s", nouv_g);
 			grille g1, g2;
-			init_grille_from_file (nouv_g, &g1);
-			alloue_grille(g1.nbl, g1.nbc, &g2);
-			efface_ecran_cairo(cr);
+			g1 = nouv_grille(g1);
+			alloue_grille(g1.nbl, g1.nbc, &g2); //il faut que les dimensions de la grille temp. soient les memes que celles de la grille principale 
+			
 			if (g1.nbl >= 10) XResizeWindow(dpy, win, 900, 700);
 			if (g1.nbl < 10) XResizeWindow(dpy, win, SIZEX, SIZEY);
 			tps=0;
-			affiche_mode_cairo (tps, cr);
+			efface_ecran_cairo(cr);
 			affiche_grille_cairo (g1, cr);
+			affiche_mode_cairo (tps, cr);
 			g = g1;
 			gc = g2;
 			
 			
 		}
+	/*--------------------------------------------------------------------------*/
+		else if(e.type==KeyPress && e.xkey.keycode == 32){ //touche o
+			if (oscille(g) == 0){//la grille n'oscille pas
+				int d = delai_oscille(g);
+				efface_ecran_cairo(cr);
+				affiche_mode_cairo(tps, cr);
+				affiche_non_oscille(d, cr);
+				affiche_grille_cairo(g, cr);
+			}
+			else{
+				efface_ecran_cairo(cr);
+				affiche_mode_cairo(tps, cr);
+				affiche_oscille(oscille(g), cr);
+				affiche_grille_cairo(g, cr);
+			}
+		}	 
+				
 	/*--------------------------------------------------------------------------*/
 		else if (e.xbutton.button==Button3){ //clic droit
 			break;
